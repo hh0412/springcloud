@@ -1,0 +1,34 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: shop-user
+  datasource:
+    url: jdbc:mysql://localhost:3306/springcloud
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    username: root
+    password: Hh000412
+  jpa:
+    show-sql: true # 是否打印sql语句
+    generate-ddl: true # 是否自动建表
+    database: mysql #
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+eureka:
+  client:
+    register-with-eureka: true # 作为客户端需要注册到Eureka
+    fetch-registry: true  # 作为客户端需要从Eureka获取注册信息
+    service-url: # 客户端注册地址
+      defaultZone: http://localhost:8888/eureka
+  instance:
+  # 优先使用该服务的IP地址注册到Eureka，在生产环境建议改为true
+    prefer-ip-address: true
+
+
+
+
